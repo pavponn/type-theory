@@ -1,2 +1,2 @@
-# type_theory
+# Type Theory
 Type Theory Course, ITMO University.
