@@ -1,6 +1,7 @@
 {
 module Parser where
 import Lex
+import MyData
 }
 
 %name      parseExpression
@@ -29,19 +30,12 @@ Appl
 
 Term
   : OPENB Expr CLOSEB              { $2 }
-  | VAR                            {Var $1 }
+  | VAR                            { Var $1 }
 
 
 {
 
 parseError =  fail "Parse error"
 
-data Expression = Application Expression Expression | Abstraction String Expression | Var String deriving (Eq)
-
-
-instance Show Expression where
- show (Application exp1 exp2) = "(" ++ show exp1 ++ " " ++ show exp2 ++ ")"
- show (Abstraction var exp2) = "(\\" ++  var ++ "." ++ show exp2 ++ ")"
- show (Var variable) = variable
 
 }
